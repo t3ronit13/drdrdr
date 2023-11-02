@@ -24,18 +24,41 @@
             padding: 20px;
             text-align: center;
         }
-        #dog {
+        #buy {
             background: var(--tg-theme-secondary-bg-color);
         }
+        #form{
+            display: none;
+            text-align: center}
     </style>
 </head>
 <body>
     <div id="main">
         <h1>%%%%%</h1>
-        <button id = 'dog'>
+        <button id = 'buy'>
         <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
         </button>
     </div>
+    <form id="form">
+        <input type="text" placeholder="Имя" id="user_name">
+        <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Тедефон" id="user_phone">
+        <button id="order">Оформить</button>
+    </form>
+    <script src = "https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    let tg = window.Telegram.WebApp;
+    let buy = document.getElementById("buy");
+    let order = document.getElementById("order");
 
+    buy.addEventListener("click", ()=>{
+        document.getElementById("main").style.display = "none"
+        document.getElementById("form").style.display = "block"
+        document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tginitDataUnsafe.user.last_name
+    })
+    order.addEventListener("click", ()=>{
+        tg.close()
+    })
+</script>
 </body>
 </html>
