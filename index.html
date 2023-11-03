@@ -39,10 +39,26 @@
         button:hover{
             background: var(--tg-theme-secondary-bg-color);
         }
-        #order{
+        #order1{
+            border: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            color: var(--tg-theme-button-color);
+            background: var(--tg-theme-button-text-color);}
 
-        }
         #form{
+            display: none;
+            text-align: center}
+        #form1{
+            display: none;
+            text-align: center}
+        #form2{
             display: none;
             text-align: center}
         input {
@@ -55,16 +71,23 @@
             border-radius: 5px;
         }
         input:focus {
-            border-color: #db5d5d;
+            border-color: #94211C;
         }
     </style>
 </head>
 <body>
     <div id="main">
-        <h1>%%%%%</h1>
+        <h1>Sol x Magneto</h1>
         <button id = 'buy'>
         <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
         </button>
+        <button id = 'menu'>
+        <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
+        </button>
+        <button id = 'info'>
+        <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
+        </button>
+
     </div>
     <form id="form">
         <input type="text" placeholder="Имя" id="user_name">
@@ -75,12 +98,31 @@
         <div id = 'error'></div>
         <button id="order">Забронировать</button>
     </form>
+    <form id = "form1">
+        <h1>Меню вкусов</h1>
+
+    </form>
+    <form id = "form2">
+        <h1>История</h1>
+
+    </form>
     <script src = "https://telegram.org/js/telegram-web-app.js"></script>
 <script>
     let tg = window.Telegram.WebApp;
     let buy = document.getElementById("buy");
     let order = document.getElementById("order");
+    let menu = document.getElementById("menu")
+    let info = document.getElementById("info")
     tg.expand()
+
+    info.addEventListener("click", ()=>{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("form2").style.display = "block";z
+    })
+    menu.addEventListener("click", ()=>{
+        document.getElementById("main").style.display = "none";
+        document.getElementById("form1").style.display = "block";z
+    })
 
     buy.addEventListener("click", ()=>{
         document.getElementById("main").style.display = "none";
