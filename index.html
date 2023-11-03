@@ -70,6 +70,8 @@
         <input type="text" placeholder="Имя" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Телефон" id="user_phone">
+        <input type="date" id="user_date">
+        <input type="time" id="user_time">
         <div id = 'error'></div>
         <button id="order">Забронировать</button>
     </form>
@@ -90,6 +92,8 @@
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
+        let date = document.getElementById("user_date").value;
+        let time = document.getElementById("user_time").value;
 
         if (name.length < 3) {
             document. getElementById ("error").innerText = "Ошибка в имени" ;
@@ -106,7 +110,9 @@
         let data = {
             name:name,
             email:email,
-            phone:phone
+            phone:phone,
+            date:date,
+            time:time
         }
         tg.sendData(JSON.stringify(data))
 
