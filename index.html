@@ -126,7 +126,7 @@
     </div>
     <form id="form">
         <input type="text" placeholder="Имя" id="user_name">
-        <input type="text" placeholder="Email" id="user_email">
+        <input type="email" placeholder="Email" id="user_email">
         <input type="text" placeholder="Телефон" id="user_phone">
         <input type="date" id="user_date">
         <input type="time" id="user_time">
@@ -175,13 +175,9 @@
         let time = document.getElementById("user_time").value;
 
         if (name.length < 3) {
-            document. getElementById ("error").innerText = "Ошибка в имени" ;
+            document.getElementById("error").innerText = "Ошибка в имени";
             return;
 
-        }
-        if (email.length < 5) {
-            document.getElementById("error").innerText = "Ошибка в email";
-            return;
         }
         if (phone.length<5) { document.getElementById ("error").innerText = "Ошибка в номере телефона" ;
             return;
