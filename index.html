@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name = "viewport"
         content="width=device width, user-scalable=no, initial-scale = 1.0, maximum-scale=1.0,minimum-scale = 1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SxM</title>
     <style>
-        * {
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Roboto', serif;
+            font-style: italic;
         }
         body {
-            font-family: 'Roboto Light', italic;;
-            font-weight: 200;
-            color: #C09143;
-            background: #000000;
+            color: #101010;
+            background: var(--tg-theme-bg-color);
 
         }
         #main {
@@ -31,15 +29,14 @@
             border-radius: 5px;
             border-color: #310B0A;
             margin-top: 50px;
-            font-size: 20px;
             font-weight: 500;
             cursor: pointer;
             transition: all 500ms ease;
-            color: #F3F3F3;
-            background: #7D5616;}
+            color:#011110;
+            background: #C09143;}
 
         button:hover{
-            background: #200403;
+            background: #7D5616;
         }
         #order{
             border: 0;
@@ -111,7 +108,7 @@
 </head>
 <body>
     <div id="main">
-        <img src="https://static.tildacdn.com/tild3566-3830-4564-b762-333833626461/Logo_3.jpg" id = 'logo'>
+        <a href="https://ibb.co/RYPcpTk"><img id ='logo' src="https://i.ibb.co/ZGKx6zp/image.png" alt="image" border="0"></a>
         <h1></h1>
         <button id = 'buy'>
         <p>Бронь</p>
@@ -132,6 +129,7 @@
         <input type="time" id="user_time">
         <div id = 'error'></div>
         <button id="order">Забронировать</button>
+
     </form>
     <form id = "form1">
         <h1>Меню вкусов</h1>
