@@ -48,7 +48,6 @@
             width: 200px;
             font-size: 20px;
             font-weight: 500;
-            color: var(--tg-theme-bg-color);
             cursor: pointer;
             transition: all 500ms ease;
             background: #7D5616;}
@@ -126,7 +125,7 @@
 
     </div>
     <form id="form">
-        <input type="text" placeholder="Имя" id="user_name" required>
+        <input type="text" placeholder="Имя" id="user_name">
         <input type="email" placeholder="Почта" id="user_email">
         <input type="tel" placeholder="Телефон(+7**********)" id="user_phone" pattern="+7[0-9]{10}" >
         <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number'>
@@ -169,12 +168,19 @@
         document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
     })
     order.addEventListener("click", ()=>{
+        document. getElementById ("error").innerText = '';
         let number = document.getElementById("user_number").value;
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
+
+        if (name.length < 3) {
+            document.getElementById("error").innerText = "Ошибка в имени";
+            return;
+
+        }
         let data = {
             name:name,
             email:email,
@@ -183,9 +189,6 @@
             date:date,
             time:time
         }
-        if (name.length < 3) {
-            document.getElementById("error").innerText = "Ошибка в имени";
-            return;}
         tg.sendData(JSON.stringify(data))
 
     })
