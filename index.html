@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name = "viewport"
@@ -168,7 +168,7 @@
         document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
     })
     order.addEventListener("click", ()=>{
-        document. getElementById ("error").innerText = '';
+        document.getElementById ("error").innerText = '';
         let number = document.getElementById("user_number").value;
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
@@ -189,8 +189,9 @@
             date:date,
             time:time
         }
-        tg.sendData(JSON.stringify(data))
 
+        tg.sendData(JSON.stringify(data))
+        tg.close()
     })
 </script>
 </body>
