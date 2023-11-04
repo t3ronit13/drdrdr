@@ -183,6 +183,9 @@
             date:date,
             time:time
         }
+        if (name.length < 3) {
+            document.getElementById("error").innerText = "Ошибка в имени";
+            return;
         tg.sendData(JSON.stringify(data))
 
     })
