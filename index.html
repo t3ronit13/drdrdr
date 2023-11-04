@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="eng">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name = "viewport"
         content="width=device width, user-scalable=no, initial-scale = 1.0, maximum-scale=1.0,minimum-scale = 1.0">
@@ -13,10 +15,10 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto Light', italic;;
             font-weight: 200;
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
+            color: #C09143;
+            background: #000000;
 
         }
         #main {
@@ -24,9 +26,25 @@
             padding: 20px;
             text-align: center;
         }
+        button{
+            border: 0;
+            border-radius: 5px;
+            border-color: #310B0A;
+            margin-top: 50px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            color: #F3F3F3;
+            background: #7D5616;}
+
+        button:hover{
+            background: #200403;
+        }
         #order{
             border: 0;
             border-radius: 5px;
+            border-color: #310B0A;
             margin-top: 50px;
             height: 60px;
             width: 200px;
@@ -34,11 +52,9 @@
             font-weight: 500;
             cursor: pointer;
             transition: all 500ms ease;
-            color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);}
-        button:hover{
-            background: var(--tg-theme-secondary-bg-color);
-        }
+            color: #101010;
+            background: #7D5616;}
+
         #order1{
             border: 0;
             border-radius: 5px;
@@ -50,7 +66,25 @@
             cursor: pointer;
             transition: all 500ms ease;
             color: var(--tg-theme-button-color);
-            background: var(--tg-theme-button-text-color);}
+            background: var(--tg-theme-button-text-color);
+        }
+        #logo{
+            height: 200px;
+            width: 200px;
+        }
+        #buy{
+            width: 100px;
+            height: 100px;
+        }
+        #menu{
+            width: 100px;
+            height: 100px;
+        }
+        #info{
+            width: 100px;
+            height: 100px;
+        }
+
 
         #form{
             display: none;
@@ -77,15 +111,16 @@
 </head>
 <body>
     <div id="main">
-        <h1>Sol x Magneto</h1>
+        <img src="https://static.tildacdn.com/tild3566-3830-4564-b762-333833626461/Logo_3.jpg" id = 'logo'>
+        <h1></h1>
         <button id = 'buy'>
-        <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
+        <p>Бронь</p>
         </button>
         <button id = 'menu'>
-        <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
+        <p>Меню</p>
         </button>
         <button id = 'info'>
-        <img src="https://avatars.yandex.net/get-music-content/10930741/e3fee0d4.a.26805302-1/m100x100">
+        <p>История</p>
         </button>
 
     </div>
