@@ -126,8 +126,9 @@
     </div>
     <form id="form">
         <input type="text" placeholder="Имя" id="user_name">
-        <input type="email" placeholder="Email" id="user_email">
-        <input type="text" placeholder="Телефон" id="user_phone">
+        <input type="email" placeholder="Почта" id="user_email">
+        <input type="tel" placeholder="Телефон(+7**********)" id="user_phone" pattern="+7[0-9]{10}" >
+        <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number'>
         <input type="date" id="user_date">
         <input type="time" id="user_time">
         <div id = 'error'></div>
@@ -168,6 +169,7 @@
     })
     order.addEventListener("click", ()=>{
         document. getElementById ("error").innerText = '';
+        let number = document.getElementById("user_number").value;
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
@@ -179,13 +181,11 @@
             return;
 
         }
-        if (phone.length<5) { document.getElementById ("error").innerText = "Ошибка в номере телефона" ;
-            return;
-        }
         let data = {
             name:name,
             email:email,
             phone:phone,
+            number:number,
             date:date,
             time:time
         }
