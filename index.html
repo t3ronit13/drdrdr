@@ -151,13 +151,13 @@
 
     </div>
     <form id="form">
-        <input type="text" placeholder="Имя" id="user_name">
-        <input type="email" placeholder="Почта" id="user_email">
-        <input type="tel" placeholder="Телефон(+7**********)" id="user_phone" pattern="+7[0-9]{10}" >
-        <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number'>
-        <input type="date" id="user_date">
-        <input type="time" id="user_time">
-        <div id = 'error'></div>
+        <input type="text" placeholder="Имя" id="user_name" required>
+        <input type="email" placeholder="Почта" id="user_email" required>
+        <input type="texr" placeholder="Телефон(+7**********)" id="user_phone" pattern="\+7[0-9]{10}"
+               oninvalid="setCustomValidity('Пожалуйста, введите номер телефона в формате +7**********)" required>
+        <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number' required>
+        <input type="date" id="user_date" required>
+        <input type="time" id="user_time" required>
         <button id="order">Забронировать</button>
 
     </form>
@@ -202,11 +202,6 @@
         let phone = document.getElementById("user_phone").value;
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
-
-        if (name.length < 3) {
-            document.getElementById("error").innerText = "Ошибка в имени";
-            return;
-        }
         let data = {
             name:name,
             email:email,
@@ -216,9 +211,11 @@
             time:time
         }
 
+
         tg.sendData(JSON.stringify(data))
-        tg.close()
+
     })
+    tg.close()
 </script>
 </body>
 </html>
