@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name = "viewport"
@@ -154,7 +154,7 @@
         <input type="text" placeholder="Имя" id="user_name" required>
         <input type="email" placeholder="Почта" id="user_email" required>
         <input type="text" placeholder="Телефон(+7**********)" id="user_phone"  required>
-        <input type="number" step="1" placeholder="Количество человек" max = '10' min 1 id = 'user_number' required>
+        <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number' required>
         <input type="date" id="user_date" required>
         <input type="time" id="user_time" required>
         <button id="order">Забронировать</button>
@@ -194,12 +194,19 @@
     })
 
     order.addEventListener("click", ()=>{
-        let number = document.getElementById("user_number").value;
+        document.getElementById ("error").innerText = '';
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
+        let number = document.getElementById("user_number").value;
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
+
+        
+        if (name.length < 3) {
+            document.getElementById("error").innerText = "Ошибка в имени";
+            return;}
+
         let data = {
             name:name,
             email:email,
