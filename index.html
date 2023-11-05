@@ -151,12 +151,13 @@
 
     </div>
     <form id="form">
-        <input type="text" placeholder="Имя" id="user_name" >
-        <input type="email" placeholder="Почта" id="user_email" >
-        <input type="text" placeholder="Телефон(+7**********)" id="user_phone" >
-        <input type="text" placeholder="Количество человек" id = 'user_number' >
-        <input type="date" id="user_date" >
-        <input type="time" id="user_time" >
+        <input type="text" placeholder="Имя" id="user_name" required>
+        <div id = 'error'></div>
+        <input type="email" placeholder="Почта" id="user_email" required>
+        <input type="tel" placeholder="Телефон(+7**********)" id="user_phone" pattern="+7[0-9]{10}" >
+        <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number'>
+        <input type="date" id="user_date">
+        <input type="time" id="user_time">
         <button id="order">Забронировать</button>
 
     </form>
@@ -195,18 +196,18 @@
 
     order.addEventListener("click", ()=>{
         document.getElementById ("error").innerText = '';
+        let number = document.getElementById("user_number").value;
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
-        let number = document.getElementById("user_number").value;
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
 
-
-        if (name.length < 3) {
+        if (name.length < 3 || not('@' in email))  {
             document.getElementById("error").innerText = "Ошибка в имени";
-            return;}
-
+            return;
+        }
+        if ('@' in email)
         let data = {
             name:name,
             email:email,
@@ -216,9 +217,10 @@
             time:time
         }
 
-
         tg.sendData(JSON.stringify(data))
+
     })
+    tg.close()
 </script>
 </body>
 </html>
