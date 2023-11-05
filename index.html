@@ -153,8 +153,8 @@
     <form id="form">
         <input type="text" placeholder="Имя" id="user_name" required>
         <input type="email" placeholder="Почта" id="user_email" required>
-        <input type="text" placeholder="Телефон(+7**********)" id="user_phone" required>
-        <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number' required>
+        <input type="text" placeholder="Телефон(+7**********)" id="user_phone"  required>
+        <input type="number" step="1" placeholder="Количество человек" max = '10' min 1 id = 'user_number' required>
         <input type="date" id="user_date" required>
         <input type="time" id="user_time" required>
         <button id="order">Забронировать</button>
@@ -194,7 +194,6 @@
     })
 
     order.addEventListener("click", ()=>{
-        document.getElementById ("error").innerText = '';
         let number = document.getElementById("user_number").value;
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
@@ -212,6 +211,7 @@
 
 
         tg.sendData(JSON.stringify(data))
+        tg.close()
     })
 </script>
 </body>
