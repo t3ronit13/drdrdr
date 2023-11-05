@@ -198,20 +198,15 @@
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
-        let number = document.getElementById("user_number").value;
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
 
         
-        if (name.length < 3) {
-            document.getElementById("error").innerText = "Ошибка в имени";
-            return;}
 
         let data = {
             name:name,
             email:email,
             phone:phone,
-            number:number,
             date:date,
             time:time
         }
