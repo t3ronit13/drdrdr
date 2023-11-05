@@ -76,6 +76,7 @@
 
         button:hover{
             border-color: #310B0A;
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
         }
         #menu{
 
@@ -152,10 +153,7 @@
     <form id="form">
         <input type="text" placeholder="Имя" id="user_name" required>
         <input type="email" placeholder="Почта" id="user_email" required>
-        <input type="text" placeholder="Телефон(+7**********)" id="user_phone"
-               pattern="\+7[0-9]{10}"
-               oninvalid="setCustomValidity('Пожалуйста, введите номер телефона в формате +7**********')"
-               required>
+        <input type="text" placeholder="Телефон(+7**********)" id="user_phone" pattern="\+7[0-9]{10}" oninvalid="setCustomValidity('Пожалуйста, введите номер телефона в формате +7**********')" required>
         <input type="number" step="1" placeholder="Количество человек" max = '10' id = 'user_number' required>
         <input type="date" id="user_date" required>
         <input type="time" id="user_time" required>
@@ -214,9 +212,8 @@
 
 
         tg.sendData(JSON.stringify(data))
-
+        tg.close()
     })
-    tg.close()
 </script>
 </body>
 </html>
