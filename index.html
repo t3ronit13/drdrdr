@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="eng">
 <head>
     <meta charset="UTF-8">
     <meta name = "viewport"
@@ -7,7 +7,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SxM</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');        * {
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -26,10 +27,9 @@
         }
         button{
             border: 0;
-            border-radius: 5px;
+            border-radius: 100px;
             border-color: #310B0A;
             margin-top: 100px;
-            font-weight: 500;
             font-size: 20px;
             cursor: pointer;
             transition: all 500ms ease;
@@ -64,6 +64,9 @@
             transition: all 500ms ease;
             color: var(--tg-theme-button-color);
             background: var(--tg-theme-button-text-color);
+        }
+        #error{
+            color: var(--tg-theme-text-color);
         }
         #logo{
             height: 200px;
@@ -155,11 +158,11 @@
 
     info.addEventListener("click", ()=>{
         document.getElementById("main").style.display = "none";
-        document.getElementById("form2").style.display = "block";z
+        document.getElementById("form2").style.display = "block";
     })
     menu.addEventListener("click", ()=>{
         document.getElementById("main").style.display = "none";
-        document.getElementById("form1").style.display = "block";z
+        document.getElementById("form1").style.display = "block";
     })
 
     buy.addEventListener("click", ()=>{
@@ -167,6 +170,7 @@
         document.getElementById("form").style.display = "block";
         document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
     })
+
     order.addEventListener("click", ()=>{
         document.getElementById ("error").innerText = '';
         let number = document.getElementById("user_number").value;
@@ -179,7 +183,6 @@
         if (name.length < 3) {
             document.getElementById("error").innerText = "Ошибка в имени";
             return;
-
         }
         let data = {
             name:name,
