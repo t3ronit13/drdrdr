@@ -203,11 +203,10 @@
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
 
-        if (name.length < 3 || not('@' in email))  {
+        if (name.length < 3)  {
             document.getElementById("error").innerText = "Ошибка в имени";
             return;
         }
-        if ('@' in email)
         let data = {
             name:name,
             email:email,
