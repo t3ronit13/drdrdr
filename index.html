@@ -151,11 +151,17 @@
     </div>
     <form id="form">
         <input type="text" placeholder="Имя" id="user_name">
+        <div id ='error_name'></div>
         <input type="email" placeholder="Почта" id="user_email">
+        <div id ='error_email'></div>
         <input type="text" placeholder="Телефон(+7**********)" id="user_phone">
+        <div id ='error_phone'></div>
         <input type="text" placeholder="Количество человек" id = 'user_number'>
+        <div id ='error_number'></div>
         <input type="date" id="user_date">
+        <div id ='error_date'></div>
         <input type="time" id="user_time">
+        <div id ='error_time'></div>
         <button id="order">Забронировать</button>
         <div id ='error'></div>
     </form>
@@ -170,6 +176,9 @@
     </form>
     <script src = "https://telegram.org/js/telegram-web-app.js"></script>
 <script>
+    function isValid(username) {
+   return /^[a-zA-Z0-9]+$/.test(username)
+}
     let tg = window.Telegram.WebApp;
     let buy = document.getElementById("buy");
     let order = document.getElementById("order");
@@ -202,21 +211,21 @@
         let time = document.getElementById("user_time").value;
 
         if (name.length < 3) {
-            document.getElementById ("error").innerText = "Введите имя" ;
+            document.getElementById ("error_name").innerText = "Введите имя" ;
             return;
         }
         if (email.length < 5) {
-            document.getElementById("error").innerText = "Введите email";
+            document.getElementById("error_email").innerText = "Введите email";
             return;
         }
-        if (phone.length<5) { document.getElementById ("error").innerText = "Введите номер телефона" ;
+        if (phone.length<5) { document.getElementById ("error_phone").innerText = "Введите номер телефона" ;
             return;
         }
 
-        if (date.length<9) { document.getElementById ("error").innerText = "Введите дату" ;
+        if (date.length<9) { document.getElementById ("error_date").innerText = "Введите дату" ;
             return;
         }
-        if (phone.length<5) { document.getElementById ("error").innerText = "Введите время" ;
+        if (phone.length<5) { document.getElementById ("error_time").innerText = "Введите время" ;
             return;
         }
         let data = {
