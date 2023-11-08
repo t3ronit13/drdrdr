@@ -50,7 +50,22 @@
             color: var(--tg-theme-button-color);
             background: var(--tg-theme-button-text-color);
         }
-        #error{
+        #error_time{
+            color: red;
+        }
+        #error_name{
+            color: red;
+        }
+        #error_email{
+            color: red;
+        }
+        #error_phone{
+            color: red;
+        }
+        #error_number{
+            color: red;
+        }
+        #error_date{
             color: red;
         }
         #logo{
@@ -176,9 +191,16 @@
     </form>
     <script src = "https://telegram.org/js/telegram-web-app.js"></script>
 <script>
-    function isValid(username) {
-   return /^[a-zA-Z0-9]+$/.test(username)
-}
+
+    // создаем новый объект `Date`
+    var today = new Date();
+
+    // получить сегодняшнюю дату в формате `MM/DD/YYYY`
+    var now = today.toLocaleDateString('en-US');
+    console.log(now);
+
+    function isValid(par) {
+        return /^[0-9]+$/.test(par)}
     let tg = window.Telegram.WebApp;
     let buy = document.getElementById("buy");
     let order = document.getElementById("order");
@@ -202,7 +224,12 @@
     })
 
     order.addEventListener("click", ()=>{
-        document.getElementById ("error").innerText = '';
+        document.getElementById ("error_name").innerText = '';
+        document.getElementById ("error_time").innerText = '';
+        document.getElementById ("error_email").innerText = '';
+        document.getElementById ("error_number").innerText = '';
+        document.getElementById ("error_date").innerText = '';
+        document.getElementById ("error_phone").innerText = '';
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
@@ -210,7 +237,7 @@
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
 
-        if (name.length < 3) {
+        if (name.length < 2) {
             document.getElementById ("error_name").innerText = "Введите имя" ;
             return;
         }
@@ -218,14 +245,25 @@
             document.getElementById("error_email").innerText = "Введите email";
             return;
         }
-        if (phone.length<5) { document.getElementById ("error_phone").innerText = "Введите номер телефона" ;
+        if (phone.length<7) { document.getElementById ("error_phone").innerText = "Введите номер телефона" ;
             return;
         }
-
+        if (isValid(phone)==false){document.getElementById ("error_phone").innerText = "Введите номер телефона" ;
+            return;
+        }
+        if (number.length<1) {document.getElementById ("error_number").innerText = "Введите количество человек" ;
+            return;}
+        if (isValid(number)==false) { document.getElementById ("error_number").innerText = "Введите количество человек" ;
+            return;
+        }
+        if (number>=10) {document.getElementById ("error_number").innerText = "Введите количество человек меньше 10" ;
+            return;}
         if (date.length<9) { document.getElementById ("error_date").innerText = "Введите дату" ;
             return;
         }
-        if (phone.length<5) { document.getElementById ("error_time").innerText = "Введите время" ;
+        if (now>date) {document.getElementById ("error_date").innerText = "Введите корректную дату" ;
+            return;}
+        if (time.length<5) { document.getElementById ("error_time").innerText = "Введите время" ;
             return;
         }
         let data = {
