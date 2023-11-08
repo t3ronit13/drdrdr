@@ -51,7 +51,7 @@
             background: var(--tg-theme-button-text-color);
         }
         #error{
-            color: var(--tg-theme-text-color);
+            color: red;
         }
         #logo{
             height: 200px;
@@ -150,12 +150,12 @@
 
     </div>
     <form id="form">
-        <input type="text" placeholder="Имя" id="user_name" required>
-        <input type="email" placeholder="Почта" id="user_email" required>
-        <input type="text" placeholder="Телефон(+7**********)" id="user_phone"  required>
-        <input type="text" placeholder="Количество человек" id = 'user_number' required>
-        <input type="date" id="user_date" required>
-        <input type="time" id="user_time" required>
+        <input type="text" placeholder="Имя" id="user_name">
+        <input type="email" placeholder="Почта" id="user_email">
+        <input type="text" placeholder="Телефон(+7**********)" id="user_phone">
+        <input type="text" placeholder="Количество человек" id = 'user_number'>
+        <input type="date" id="user_date">
+        <input type="time" id="user_time">
         <button id="order">Забронировать</button>
         <div id ='error'></div>
     </form>
@@ -193,6 +193,7 @@
     })
 
     order.addEventListener("click", ()=>{
+        document.getElementById ("error").innerText = '';
         let name = document.getElementById("user_name").value;
         let email = document.getElementById("user_email").value;
         let phone = document.getElementById("user_phone").value;
@@ -200,7 +201,24 @@
         let date = document.getElementById("user_date").value;
         let time = document.getElementById("user_time").value;
 
+        if (name.length < 3) {
+            document.getElementById ("error").innerText = "Введите имя" ;
+            return;
+        }
+        if (email.length < 5) {
+            document.getElementById("error").innerText = "Введите email";
+            return;
+        }
+        if (phone.length<5) { document.getElementById ("error").innerText = "Введите номер телефона" ;
+            return;
+        }
 
+        if (date.length<9) { document.getElementById ("error").innerText = "Введите дату" ;
+            return;
+        }
+        if (phone.length<5) { document.getElementById ("error").innerText = "Введите время" ;
+            return;
+        }
         let data = {
             name:name,
             email:email,
