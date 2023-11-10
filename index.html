@@ -7,11 +7,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SxM</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', serif;
+            font-family: 'Roboto', sans-serif;
             font-style: italic;
         }
         body {
@@ -51,27 +52,34 @@
             background: var(--tg-theme-button-text-color);
         }
         #error_time{
-            color: red;
+            color: #94211C;
         }
         #error_name{
-            color: red;
+            color: #94211C;
         }
         #error_email{
-            color: red;
+            color: #94211C;
         }
         #error_phone{
-            color: red;
+            color: #94211C;
         }
         #error_number{
-            color: red;
+            color: #94211C;
         }
         #error_date{
-            color: red;
+            color: #94211C;
         }
         #logo{
             height: 200px;
             width: 200px;
         }
+        #colont{
+            height: 10%;
+            width: 40%;
+            position:absolute;
+            bottom:0;
+            right: 29%;
+}
         #buy{
             border: 1px;
             border-style: double;
@@ -80,8 +88,10 @@
             font-size: 20px;
             cursor: pointer;
             transition: all 500ms ease;
-            color: var(--tg-theme-button-text-color) ;
+            color: #7D5016 ;
             background: var(--tg-theme-bg-color);
+            background-image: url("26.png");
+            background-size: 65px 65px;
             width: 100px;
             margin-top: 50px;
             height: 100px;
@@ -92,7 +102,7 @@
             border-color: #310B0A;
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
         }
-        #menu{
+       #menu{
 
             border: 1px;
             border-style: double;
@@ -101,8 +111,12 @@
             font-size: 20px;
             cursor: pointer;
             transition: all 500ms ease;
-            color: var(--tg-theme-button-text-color) ;
+            color: #7D5016;
             background: var(--tg-theme-bg-color);
+            background-image: url("28.png");
+            background-size: 70%;
+            background-repeat:no-repeat;
+            background-position: center;
             width: 100px;
             height: 100px;
             margin-left: 10px;
@@ -117,8 +131,12 @@
             font-size: 20px;
             cursor: pointer;
             transition: all 500ms ease;
-            color: var(--tg-theme-button-text-color) ;
+            color: #7D5016;
             background: var(--tg-theme-bg-color);
+            background-image: url("21.png");
+            background-size: 50%;
+            background-repeat:no-repeat;
+            background-position: center;
             width: 100px;
             height: 100px;
             margin-left: 10px;
@@ -127,17 +145,22 @@
 
 
         #form{
+            font-family: 'Roboto', sans-serif;
             display: none;
             text-align: center}
         #form1{
+            font-family: 'Roboto', sans-serif;
             display: none;
             text-align: center}
         #form2{
+            font-family: 'Roboto', sans-serif;
             display: none;
             text-align: center}
         input {
+            font-family: 'Roboto', sans-serif;
             width: 90%;
             outline: none;
+            height: 20px;
             margin: 10px 5%;
             padding: 15px 10px;
             font-size: 14px;
@@ -151,7 +174,7 @@
 </head>
 <body>
     <div id="main">
-        <a href="https://ibb.co/RYPcpTk"><img id ='logo' src="https://i.ibb.co/ZGKx6zp/image.png" alt="image" border="0"></a>
+        <a href="https://www.solxmagneto.ru/"><img id ='logo' src="https://i.ibb.co/ZGKx6zp/image.png" alt="image" border="0"></a>
         <h1></h1>
         <button id = 'buy'>
         <p>Бронь</p>
@@ -179,6 +202,7 @@
         <div id ='error_time'></div>
         <button id="order">Забронировать</button>
         <div id ='error'></div>
+        <a href="https://www.solxmagneto.ru/"><img id ='colont' src="24.png" alt="image" border="0"></a>
     </form>
     <form id = "form1">
         <h1>Меню вкусов</h1>
@@ -200,7 +224,7 @@
     console.log(now);
 
     function isValid(par) {
-        return /^[0-9]+$/.test(par)}
+        return /^[0-9 +]+$/.test(par)}
     let tg = window.Telegram.WebApp;
     let buy = document.getElementById("buy");
     let order = document.getElementById("order");
